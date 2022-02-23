@@ -1,6 +1,6 @@
-# Google Pupeteer in PHP
+# Google Puppeteer in PHP
 
-Google organic results scraper in PHP via Pupeteer.
+Google organic results scraper in PHP via Puppeteer.
 
 [![Latest Version](https://img.shields.io/github/tag/Piedweb/Google.svg?style=flat&label=release)](https://github.com/Piedweb/Google/tags)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)

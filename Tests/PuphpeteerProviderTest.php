@@ -18,10 +18,6 @@ final class PuphpeteerProviderTest extends TestCase
         $this->assertStringContainsString('piedweb.com', $rawHtml);
 
         $results = $extractor->getOrganicResults();
-        $this->assertSame('https://piedweb.com/', $results[0]->url);
-
         $this->assertTrue(count($results) > 2);
-
-        $this->assertTrue($provider->clickOn('https://piedweb.com/'));
     }
 }
