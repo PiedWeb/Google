@@ -1,0 +1,43 @@
+{
+  "name": "piedweb/google",
+  "description": "Google Helper to Hack serp",
+  "keywords": [],
+  "homepage": "https://piedweb.com",
+  "license": "MIT",
+  "require": {
+    "nesk/puphpeteer": "^2.0",
+    "symfony/panther": "^2.0",
+    "symfony/dom-crawler": "^6.0",
+    "thecodingmachine/safe": "^2.1",
+    "guzzlehttp/guzzle": "^7.4",
+    "piedweb/curl": "^0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "PiedWeb\\Google\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Robin D.",
+      "email": "contact@robin-d.fr",
+      "homepage": "https://dev.piedweb.com/"
+    }
+  ],
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.2",
+    "phpstan/phpstan": "^1.0",
+    "phpunit/phpunit": "^9.5",
+    "symfony/debug": "^4.4",
+    "vimeo/psalm": "^4"
+  },
+  "scripts": {
+    "psalm": "vendor/bin/psalm --no-suggestions --no-cache",
+    "stan": "vendor/bin/phpstan analyze src",
+    "test": "vendor/bin/phpunit --stop-on-failure",
+    "format": "vendor/bin/php-cs-fixer fix"
+  }
+}
