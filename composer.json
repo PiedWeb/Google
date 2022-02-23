@@ -6,11 +6,7 @@
   "license": "MIT",
   "require": {
     "nesk/puphpeteer": "^2.0",
-    "symfony/panther": "^2.0",
-    "symfony/dom-crawler": "^6.0",
-    "thecodingmachine/safe": "^2.1",
-    "guzzlehttp/guzzle": "^7.4",
-    "piedweb/curl": "^0.1"
+    "thecodingmachine/safe": "^2.1"
   },
   "autoload": {
     "psr-4": {
