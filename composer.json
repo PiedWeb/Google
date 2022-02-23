@@ -5,6 +5,7 @@
   "homepage": "https://piedweb.com",
   "license": "MIT",
   "require": {
+    "php": ">=8.0",
     "nesk/puphpeteer": "^2.0",
     "thecodingmachine/safe": "^2.1"
   },
