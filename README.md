@@ -1,6 +1,14 @@
-# Google Helpers
+# Google Pupeteer in PHP
 
 Google organic results scraper in PHP via Pupeteer.
+
+[![Latest Version](https://img.shields.io/github/tag/Piedweb/Google.svg?style=flat&label=release)](https://github.com/Piedweb/Google/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/Piedweb/Google/Tests?label=tests)](https://github.com/Piedweb/Google/actions)
+[![Quality Score](https://img.shields.io/scrutinizer/g/Piedweb/Google.svg?style=flat)](https://scrutinizer-ci.com/g/Piedweb/Google)
+[![Code Coverage](https://codecov.io/gh/Piedweb/Google/branch/main/graph/badge.svg)](https://codecov.io/gh/Piedweb/Google/branch/main)
+[![Type Coverage](https://shepherd.dev/github/Piedweb/Google/coverage.svg)](https://shepherd.dev/github/Piedweb/Google)
+[![Total Downloads](https://img.shields.io/packagist/dt/piedweb/google.svg?style=flat)](https://packagist.org/packages/piedweb/google)
 
 ## Google
 
@@ -11,14 +19,7 @@ Google organic results scraper in PHP via Pupeteer.
 ### Contributors
 
 - [Pied Web](https://piedweb.com)
-- ...
 
-## License
-
-MIT (see the LICENSE file for details)
-
-[![Latest Version](https://img.shields.io/github/tag/PiedWeb/Google.svg?style=flat&label=release)](https://github.com/PiedWeb/Google/tags)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/PiedWeb/Google/LICENSE.md)
-[![Build Status](https://img.shields.io/travis/PiedWeb/Google/master.svg?style=flat)](https://travis-ci.org/PiedWeb/Google)
-[![Quality Score](https://img.shields.io/scrutinizer/g/PiedWeb/Google.svg?style=flat)](https://scrutinizer-ci.com/g/PiedWeb/Google)
-[![Total Downloads](https://img.shields.io/packagist/dt/ropendev/google.svg?style=flat)](https://packagist.org/packages/ropendev/google)
+<p align="center"><a href="https://dev.piedweb.com" rel="dofollow">
+<img src="https://raw.githubusercontent.com/Pushword/Pushword/f5021f4c5d5d3ab3f2858ec2e4bdd70818806c6a/packages/admin/src/Resources/assets/logo.svg" width="200" height="200" alt="PHP Packages Open Source" />
+</a></p>
