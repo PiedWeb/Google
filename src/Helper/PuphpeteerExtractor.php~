@@ -1,23 +1,16 @@
 <?php
 
-namespace PiedWeb\Google\Provider;
+namespace PiedWeb\Google\Extractor;
 
-use LogicException;
-use Nesk\Puphpeteer\Puppeteer;
-use Nesk\Puphpeteer\Resources\Browser;
-use Nesk\Puphpeteer\Resources\Page;
 use Nesk\Rialto\Data\JsFunction;
-use Nesk\Rialto\Exceptions\Node\Exception;
 use PiedWeb\Google\Logger;
+use PiedWeb\Google\Provider\PuphpeteerDesktop;
 use PiedWeb\Google\Result\OrganicResult;
 
 final class PuphpeteerExtractor
 {
-    public  Puphpeteer $puppeteer;
-
-    public function __construct(Puphpeteer $puppeteer)
+    public function __construct(public Puphpeteer|PuphpeteerDesktop $puppeteer)
     {
-        $this->puppeteer = $puppeteer;
     }
 
     public function getNbrResults(): int
@@ -36,6 +29,10 @@ final class PuphpeteerExtractor
 
     /**
      * @return OrganicResult[]
+     *
+     * TODO: move it to AbstractExtractor using sf dom crawler
+     *      Create an abstract function getPixelPos(string $xpath): int
+     *      Use https://www.php.net/manual/fr/domnode.getnodepath.php to extract xpath from node
      */
     public function getOrganicResults(): array
     {

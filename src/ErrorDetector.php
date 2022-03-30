@@ -10,12 +10,12 @@ final class ErrorDetector
          * We're sorry...... but your computer or network may be sending automated queries.
          * To protect our users, we can't process your request right now.'
          */
-        if (false !== strpos($html, '<title>Sorry...</title>')) {
+        if (str_contains($html, '<title>Sorry...</title>')) {
             return true;
         }
 
         /* Captcha Google */
-        elseif (false !== strpos($html, 'document.getElementById(\'captcha')) {
+        elseif (str_contains($html, 'document.getElementById(\'captcha')) {
             return true;
         }
 

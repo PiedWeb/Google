@@ -36,7 +36,7 @@ final class Sleeper
      */
     public function execSleep(): void
     {
-        if ($this->sleep) {
+        if (0 !== $this->sleep) {
             $sleep = $this->getSleep();
             usleep($sleep);
             Logger::log('sleep '.($sleep / 1000000).'s');
@@ -48,7 +48,7 @@ final class Sleeper
      */
     public function execPartialSleep(float $howMuch = 0.5): void
     {
-        if ($this->sleep) {
+        if (0 !== $this->sleep) {
             $sleep = (int) round($this->getSleep() * $howMuch);
             usleep($sleep);
             Logger::log('sleep '.($sleep / 1000000).'s');

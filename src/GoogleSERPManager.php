@@ -2,13 +2,10 @@
 
 namespace PiedWeb\Google;
 
-final class Config
+final class GoogleSERPManager
 {
     /** @var string Contain the string query we will ask to Google Search * */
     public string $q = '';
-
-    /** @var int Max number of result pages we want to extract * */
-    public int $nbrPage = 1;
 
     /** @var string Contain the Google TLD we want to query * */
     public string $tld = 'com';
@@ -25,15 +22,12 @@ final class Config
     /** @var array<string, string> see emulate options for puppeteer * */
     public array $emulateOptions = [];
 
-    /** @var string Contain the cache folder for SERP results * */
-    public string $cacheFolder = '/tmp';
-
     /** @var int Contain in seconds, the time cache is valid. Default 1 Day (86400). * */
     public int $cacheTime = 86400;
 
-    public bool $previousRequestUsedCache = false;
-
     public Sleeper $sleeper;
+
+    public int $page = 1;
 
     public function setParameter(string $k, string|int $v): void
     {
@@ -47,7 +41,10 @@ final class Config
 
     public function generateGoogleSearchUrl(): string
     {
-        $this->setParameter('q', $this->q);
+        if ('' !== $this->q) {
+            $this->setParameter('q', $this->q);
+        }
+
         $url = 'https://www.google.'.$this->tld.'/search?'.$this->generateParameters();
 
         return $url;
@@ -58,24 +55,29 @@ final class Config
         return http_build_query($this->parameters, '', '&');
     }
 
-    private function getCacheFilePath(string $page): string
-    {
-        $key = sha1(json_encode($this).$page);
+    /** @var string Contain the cache folder for SERP results * */
+    public string $cacheFolder = '/tmp';
 
-        return $this->cacheFolder.'/'.$key.'.html';
+    private function getCacheFilePath(): string
+    {
+        return $this->cacheFolder.'/'.sha1(\Safe\json_encode($this)).'.html';
     }
 
-    public function setCache(string $page, string $html): void
+    public function deleteCache(): void
     {
-        if ($this->cacheFolder) {
-            file_put_contents($this->getCacheFilePath($page), $html);
+        @unlink($this->getCacheFilePath());
+    }
+
+    public function setCache(string $html): void
+    {
+        if ('' !== $this->cacheFolder) {
+            file_put_contents($this->getCacheFilePath(), $html);
         }
     }
 
-    public function getCache(string $page): ?string
+    public function getCache(): ?string
     {
-        $this->previousRequestUsedCache = false;
-        $cacheFilePath = $this->getCacheFilePath($page);
+        $cacheFilePath = $this->getCacheFilePath();
 
         if (! file_exists($cacheFilePath)) {
             return null;
@@ -85,8 +87,6 @@ final class Config
         if ($diff > $this->cacheTime) {
             return null;
         }
-
-        $this->previousRequestUsedCache = true;
 
         return \Safe\file_get_contents($cacheFilePath);
     }

@@ -6,9 +6,11 @@ final class OrganicResult
 {
     public int $pos;
 
-    public int $pixelPos;
+    public int $pixelPos = 0;
 
     public string $url;
 
-    public string$anchor;
+    public string $title;
+
+    public string $description;
 }
